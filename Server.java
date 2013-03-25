@@ -10,7 +10,7 @@ public class Server {
             System.exit(-1);
         }
         try {
-            LocateRegistry.createRegistry(Integer.parseInt(args[1]));
+            LocateRegistry.createRegistry(Integer.parseInt(args[0]));
             Naming.rebind("Remote", new RemoteListener());
         } catch(Exception e) {
             e.printStackTrace();
