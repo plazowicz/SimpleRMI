@@ -10,8 +10,9 @@ public class Server {
             System.exit(-1);
         }
         try {
-            LocateRegistry.createRegistry(Integer.parseInt(args[0]));
-            Naming.rebind("Remote", new RemoteListener());
+            int port = Integer.parseInt(args[0]);
+            LocateRegistry.createRegistry(port);
+            Naming.rebind("rmi://127.0.0.1:"+args[0]+"/Remote", new RemoteListener());
         } catch(Exception e) {
             e.printStackTrace();
         }
